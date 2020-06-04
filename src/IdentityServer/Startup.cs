@@ -87,6 +87,9 @@ namespace IdentityServer
 
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
+
+            services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         public void Configure(IApplicationBuilder app)
@@ -105,6 +108,8 @@ namespace IdentityServer
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllers();
+                endpoints.MapRazorPages();
             });
         }
     }
